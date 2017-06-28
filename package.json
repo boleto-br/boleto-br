@@ -1,10 +1,11 @@
 {
-  "name": "boleto.js",
+  "name": "brazilian-banks-boleto",
   "version": "0.0.1",
   "description": "Brazilian Banks Boleto",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "boleto"
