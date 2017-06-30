@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prettier": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"lib/**/*.js\"",
+    "lint":"npm run prettier && xo --fix"
   },
   "keywords": [
     "boleto"
@@ -22,7 +24,13 @@
     "space": true
   },
   "dependencies": {
-    "left-pad": "^1.1.3",
-    "ramda": "^0.24.1"
+    "left-pad": "^1.1.3"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": true,
+    "ignore": [
+    "!{test}/**"
+   ]
   }
 }

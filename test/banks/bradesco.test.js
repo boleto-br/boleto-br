@@ -1,18 +1,25 @@
 const {
-  barCode
+  barCode,
+  digitableLine
 } = require('../../lib/banks/bradesco')
 
 describe('bradesco bank main functionality', () => {
   it('should generate a valid barcode data', () => {
     const bar = barCode({
-      maturityDay: new Date(new Date().getTime() + 5 * 24 * 3600 * 1000),
-      agency: 1234,
-      value: 1500,
-      card: 9,
-      account: 1234,
-      ourNumber: 1,
+      maturityDay: 0,
+      agency: 4025,
+      value: 0,
+      card: 19,
+      account: 600,
+      ourNumber: 67533603336
     })
-    const expected = '2379172100000001500123490000000000100012340'
+    const expected = '23793000000000000004025196753360333600006000'
+    expect(bar).toEqual(expected)
+  })
+
+  it('should generate a valid digitable line', () => {
+    const bar = digitableLine('23793000000000000004025196753360333600006000')
+    const expected = '23794.02510 96753.360336 36000.060008 3 00000000000000'
     expect(bar).toEqual(expected)
   })
 })
