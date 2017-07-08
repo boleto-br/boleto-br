@@ -14,8 +14,8 @@ describe('moduleElevenBaseNine main functionality', () => {
 
 describe('moduleElevenBaseNine main functionality', () => {
   it('moduleElevenBaseSeven should calculate checker number, using module 11 base 7', () => {
-    const actual = moduleElevenBaseSeven('1967533603336')
-    const expected = 3
+    const actual = moduleElevenBaseSeven('1900000000001')
+    const expected = 'P'
     expect(actual).toEqual(expected)
   })
 })
