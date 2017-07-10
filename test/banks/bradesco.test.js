@@ -9,6 +9,10 @@ const {
   generateTraillerLine
 } = require('../../lib/banks/bradesco/cnab-400')
 
+const {
+  parseSeendingToFile
+} = require('../../lib/banks/bradesco')
+
 describe('boleto-utils main functionality', () => {
   it('should generate a valid barcode data', () => {
     const bar = barCode({
@@ -28,8 +32,6 @@ describe('boleto-utils main functionality', () => {
     const expected = '23794.02510 96753.360336 36000.060008 3 00000000000000'
     expect(bar).toEqual(expected)
   })
-
-
 })
 
 
@@ -39,13 +41,8 @@ describe('bradesco cnab 400 main functionality', () => {
       bankCode: '237',
       bank: 'BRADESCO',
       companyCode: '433923',
-      agencyNumber: '7506',
-      agencyDigit: '0',
-      accountNumber: '54291',
-      agenctAccountDigity: '1',
       company: 'ASSOC. CATARINENSE DE MEDICINA', // max lex 30
       date: '201216', //DDMMYY
-      hour: '150000',
       sequentialNumber: '26'
     })
 
@@ -95,5 +92,48 @@ describe('bradesco cnab 400 main functionality', () => {
   it('should generate a trailler line', () => {
     const line = generateTraillerLine(3)
     const expected = '9                                                                                                                                                                                                                                                                                                                                                                                                         000005'
+  })
+})
+
+
+describe('parseSeendingToFile main functionality', () => {
+  it('should generate a valid seeding file', () => {
+    const file = parseSeendingToFile({
+      emitterCompanyCode: '433923',
+      agencyNumber: '7506',
+      agencyDigit: '1',
+      accountNumber: '54291',
+      accountDigity: '1',
+      emitterCompany: 'ASSOC. CATARINENSE DE MEDICINA',
+      card: '09',
+      date: new Date(),
+      seedingSequentialNumber: '1',
+      bills: [{
+        ourNumber: 1,
+        documentNumber: 1,
+        value: 10000,
+        lateFee: true,
+        lateFeePercentual: 2,
+        lateFeeValue: 17,
+        occurencyCode: '01',
+        maturityDay: new Date(),
+        debtType: '12',
+        issueDay: new Date(),
+        discountDayLimit: 0,
+        discountValue: 0,
+        iofValue: 0,
+        decreaseValue: 0,
+        discountPerDay: 0,
+        registerType: '01',
+        registerNumber: '83901298000138',
+        payerName: 'JOHN BUYER',
+        payerAddress: 'CLOWN SC',
+        messageOne: ' ',
+        payerPostalCode:'88703500',
+        messageTwo: '083901298000138 ACME SA'
+      }]
+    })
+    const expected = '01REMESSA01COBRANCA       00000000000000433923ASSOC. CATARINENSE DE MEDICINA237BRADESCO       100717        MX0000001                                                                                                                                                                                                                                                                                     000001\n1                   00090750600542911                         2372000200000000001100000000002N              01000000000110071700000000100000000000012N100717000000000000000170000000000000000000000000000000000000000000000183901298000138JOHN BUYER                              CLOWN SC                                            88703500083901298000138 ACME SA                                     000002\n9                                                                                                                                                                                                                                                                                                                                                                                                         000003'
+    expect(file).toEqual(expected)
   })
 })
