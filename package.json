@@ -4,11 +4,12 @@
   "description": "Brazilian Banks Boleto",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --verbose --watch",
     "prettier": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"lib/**/*.js\" --write \"test/**/*.js\" --write rollup.config.js",
     "flow": "flow",
-    "pretest": "npm run flow && npm run prettier",
+    "pretest": "npm run flow && npm run prettier && xo --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
     "precommit": "npm test",
     "build": "rollup -c"
   },
@@ -42,6 +43,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-flow-runtime": "^0.11.1",
     "babel-preset-env": "^1.6.0",
@@ -65,8 +67,9 @@
       "jest"
     ],
     "rules": {
-      "no-mixed-operators": "warn"
-    }
+      "no-mixed-operators": 0
+    },
+    "parser": "babel-eslint"
   },
   "dependencies": {
     "pad-end": "^1.0.2",

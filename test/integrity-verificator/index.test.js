@@ -2,7 +2,7 @@ import {
   moduleElevenBaseNine,
   moduleElevenBaseSeven,
   moduleTen
-} from '../lib/integrity-verificator'
+} from '../../lib/integrity-verificator'
 
 describe('moduleElevenBaseNine main functionality', () => {
   it('should calculate checker number, using module 11 base 9', () => {
