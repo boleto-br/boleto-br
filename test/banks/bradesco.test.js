@@ -100,7 +100,7 @@ describe('parseSeendingToFile main functionality', () => {
       accountDigity: 1,
       emitterCompany: 'ASSOC. CATARINENSE DE MEDICINA',
       card: '09',
-      date: new Date(2017,6,10),
+      date: new Date(2017, 6, 10),
       seedingSequentialNumber: 1,
       bills: [
         {
@@ -111,9 +111,9 @@ describe('parseSeendingToFile main functionality', () => {
           lateFeePercentual: 2,
           lateFeeValue: 17,
           occurencyCode: '01',
-          maturityDay: new Date(2017,6,10),
+          maturityDay: new Date(2017, 6, 10),
           debtType: '12',
-          issueDay: new Date(2017,6,10),
+          issueDay: new Date(2017, 6, 10),
           discountDayLimit: 0,
           discountValue: 0,
           iofValue: 0,
