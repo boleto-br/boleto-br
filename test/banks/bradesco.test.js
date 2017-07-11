@@ -1,15 +1,15 @@
-// Import {barCode, digitableLine} from '../../lib/banks/bradesco/boleto-utils'
+import {barCode, digitableLine} from '../../lib/banks/bradesco/boleto-utils'
+import {
+  generateMainHeaderLine,
+  generateLineRegisterTypeOne,
+  generateTraillerLine
+} from '../../lib/banks/bradesco/cnab-400'
+import {parseSeendingToFile} from '../../lib/banks/bradesco'
 
-// import {
-//   generateMainHeaderLine,
-//   generateLineRegisterTypeOne,
-//   generateTraillerLine
-// } from '../../lib/banks/bradesco/cnab-400'
-
-describe.skip('boleto-utils main functionality', () => {
+describe('boleto-utils main functionality', () => {
   it('should generate a valid barcode data', () => {
     const bar = barCode({
-      maturityDay: 0,
+      maturityDay: new Date(0),
       agency: 4025,
       value: 0,
       card: '19',
@@ -27,19 +27,14 @@ describe.skip('boleto-utils main functionality', () => {
   })
 })
 
-describe.skip('bradesco cnab 400 main functionality', () => {
+describe('bradesco cnab 400 main functionality', () => {
   it('should generate a header line', () => {
     const line = generateMainHeaderLine({
       bankCode: '237',
       bank: 'BRADESCO',
       companyCode: '433923',
-      agencyNumber: '7506',
-      agencyDigit: '0',
-      accountNumber: '54291',
-      agenctAccountDigity: '1',
-      company: 'ASSOC. CATARINENSE DE MEDICINA', // Max lex 30
-      date: '201216', // DDMMYY
-      hour: '150000',
+      company: 'ASSOC. CATARINENSE DE MEDICINA', // max lex 30
+      date: '201216', //DDMMYY
       sequentialNumber: '26'
     })
 
@@ -92,5 +87,50 @@ describe.skip('bradesco cnab 400 main functionality', () => {
     const line = generateTraillerLine(3)
     const expected =
       '9                                                                                                                                                                                                                                                                                                                                                                                                         000005'
+  })
+})
+
+describe('parseSeendingToFile main functionality', () => {
+  it('should generate a valid seeding file', () => {
+    const file = parseSeendingToFile({
+      emitterCompanyCode: '433923',
+      agencyNumber: '7506',
+      agencyDigit: '1',
+      accountNumber: '54291',
+      accountDigity: '1',
+      emitterCompany: 'ASSOC. CATARINENSE DE MEDICINA',
+      card: '09',
+      date: new Date(),
+      seedingSequentialNumber: '1',
+      bills: [
+        {
+          ourNumber: 1,
+          documentNumber: 1,
+          value: 10000,
+          lateFee: true,
+          lateFeePercentual: 2,
+          lateFeeValue: 17,
+          occurencyCode: '01',
+          maturityDay: new Date(),
+          debtType: '12',
+          issueDay: new Date(),
+          discountDayLimit: 0,
+          discountValue: 0,
+          iofValue: 0,
+          decreaseValue: 0,
+          discountPerDay: 0,
+          registerType: '01',
+          registerNumber: '83901298000138',
+          payerName: 'JOHN BUYER',
+          payerAddress: 'CLOWN SC',
+          messageOne: ' ',
+          payerPostalCode: '88703500',
+          messageTwo: '083901298000138 ACME SA'
+        }
+      ]
+    })
+    const expected =
+      '01REMESSA01COBRANCA       00000000000000433923ASSOC. CATARINENSE DE MEDICINA237BRADESCO       100717        MX0000001                                                                                                                                                                                                                                                                                     000001\n1                   00090750600542911                         2372000200000000001100000000002N              01000000000110071700000000100000000000012N100717000000000000000170000000000000000000000000000000000000000000000183901298000138JOHN BUYER                              CLOWN SC                                            88703500083901298000138 ACME SA                                     000002\n9                                                                                                                                                                                                                                                                                                                                                                                                         000003\n'
+    expect(file).toEqual(expected)
   })
 })
