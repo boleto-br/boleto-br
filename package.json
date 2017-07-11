@@ -69,8 +69,8 @@
     }
   },
   "dependencies": {
-    "left-pad": "^1.1.3",
-    "right-pad": "^1.0.1",
+    "pad-end": "^1.0.2",
+    "pad-start": "^1.0.2",
     "vanilla-commons": "^1.0.1"
   }
 }
