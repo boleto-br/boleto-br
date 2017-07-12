@@ -2,7 +2,7 @@ import {
   generateMainHeaderLine,
   generateLineRegisterTypeOne,
   generateTraillerLine
-} from '../../lib/cnab/400'
+} from '../../../lib/bradesco/cnab/400'
 
 describe('generateMainHeaderLine main functionality', () => {
   it('should generate a header line', () => {
