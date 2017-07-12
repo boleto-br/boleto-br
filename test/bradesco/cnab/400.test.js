@@ -10,13 +10,13 @@ describe('generateMainHeaderLine main functionality', () => {
       bankCode: 237,
       bank: 'BRADESCO',
       companyCode: '433923',
-      company: 'ASSOC. CATARINENSE DE MEDICINA',
+      company: 'ACME. SA',
       date: '201216',
       sequentialNumber: 26
     })
 
     const expected =
-      '01REMESSA01COBRANCA       00000000000000433923ASSOC. CATARINENSE DE MEDICINA237BRADESCO       201216        MX0000026                                                                                                                                                                                                                                                                                     000001'
+      '01REMESSA01COBRANCA       00000000000000433923ACME. SA                      237BRADESCO       201216        MX0000026                                                                                                                                                                                                                                                                                     000001'
 
     expect(line).toEqual(expected)
   })
@@ -48,16 +48,16 @@ describe('generateLineRegisterTypeOne main functionality', () => {
       decreaseValue: 0,
       registerType: '01',
       registerNumber: '1841146919',
-      payerName: 'MAURO TIBOLA',
-      payerAddress: 'XANXERE                               SC',
+      payerName: 'RAFAEL CASTRO',
+      payerAddress: 'PALHOCA SC',
       messageOne: ' ',
       payerPostalCode: '89820000',
-      messageTwo: '083901298000138  ASSOCIACAO CATARINENSE DE MEDICINA - ACM',
+      messageTwo: '73646364000117  ACME SA',
       sequentialNumber: 2
     })
 
     const expected =
-      '1                   00090750600542911                         2372020002000102625200000000002N              01200010262510011700000000508960000000012N161216000000000000000170000000000000000000000000000000000000000000000100001841146919MAURO TIBOLA                            XANXERE                               SC            89820000083901298000138  ASSOCIACAO CATARINENSE DE MEDICINA - ACM   000002'
+      '1                   00090750600542911                         2372020002000102625200000000002N              01200010262510011700000000508960000000012N161216000000000000000170000000000000000000000000000000000000000000000100001841146919RAFAEL CASTRO                           PALHOCA SC                                          8982000073646364000117  ACME SA                                     000002'
 
     expect(line).toEqual(expected)
   })

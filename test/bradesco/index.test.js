@@ -8,7 +8,7 @@ describe('bradescoRemittance main functionality', () => {
       agencyDigit: 1,
       accountNumber: 54291,
       accountDigity: 1,
-      emitterCompany: 'ASSOC. CATARINENSE DE MEDICINA',
+      emitterCompany: 'ACME. SA',
       card: '09',
       date: new Date(2017, 6, 10),
       seedingSequentialNumber: 1,
@@ -40,7 +40,7 @@ describe('bradescoRemittance main functionality', () => {
       ]
     })
     const expected =
-      '01REMESSA01COBRANCA       00000000000000433923ASSOC. CATARINENSE DE MEDICINA237BRADESCO       100717        MX0000001                                                                                                                                                                                                                                                                                     000001\n1                   00090750600542911                         2372000200000000001100000000002N              01000000000110071700000000100000000000012N100717000000000000000170000000000000000000000000000000000000000000000183901298000138JOHN BUYER                              CLOWN SC                                            88703500083901298000138 ACME SA                                     000002\n9                                                                                                                                                                                                                                                                                                                                                                                                         000003\n'
+      '01REMESSA01COBRANCA       00000000000000433923ACME. SA                      237BRADESCO       100717        MX0000001                                                                                                                                                                                                                                                                                     000001\n1                   00090750600542911                         2372000200000000001100000000002N              01000000000110071700000000100000000000012N100717000000000000000170000000000000000000000000000000000000000000000183901298000138JOHN BUYER                              CLOWN SC                                            88703500083901298000138 ACME SA                                     000002\n9                                                                                                                                                                                                                                                                                                                                                                                                         000003\n'
     expect(file).toEqual(expected)
   })
 })
