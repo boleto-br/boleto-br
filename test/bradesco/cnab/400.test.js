@@ -36,12 +36,12 @@ describe('generateLineRegisterTypeOne main functionality', () => {
       ourNumber: '2000102625',
       discountPerDay: 0,
       occurencyCode: '01',
-      maturityDay: '100117',
+      expirationDay: '100117',
       documentNumber: '2000102625',
       value: 50896,
       debtType: '12',
       issueDay: '161216',
-      lateFeeValue: 17, // R$ 0,17
+      lateFeeValuePerDay: 17, // R$ 0,17
       discountDayLimit: 0,
       discountValue: 0,
       iofValue: 0,

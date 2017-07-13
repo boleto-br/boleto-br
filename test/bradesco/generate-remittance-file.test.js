@@ -1,8 +1,8 @@
-import bradescoRemittance from '../../lib/bradesco'
+import generateRemittanceFile from '../../lib/bradesco/generate-remittance-file'
 
 describe('bradescoRemittance main functionality', () => {
   it('should generate a valid remittance file', () => {
-    const file = bradescoRemittance({
+    const file = generateRemittanceFile({
       emitterCompanyCode: '433923',
       agencyNumber: '7506',
       agencyDigit: 1,
@@ -18,17 +18,17 @@ describe('bradescoRemittance main functionality', () => {
           documentNumber: '1',
           value: 10000,
           lateFee: true,
-          lateFeePercentual: 2,
-          lateFeeValue: 17,
+          lateFeePercentual: 2, //
+          lateFeeValuePerDay: 17,
           occurencyCode: '01',
-          maturityDay: new Date(2017, 6, 10),
+          expirationDay: new Date(2017, 6, 10),
           debtType: '12',
           issueDay: new Date(2017, 6, 10),
           discountDayLimit: 0,
-          discountValue: 0,
+          discountValue: 0, //?
           iofValue: 0,
           decreaseValue: 0,
-          discountPerDay: 0,
+          discountPerDay: 0, // ?
           registerType: '01',
           registerNumber: '83901298000138',
           payerName: 'JOHN BUYER',
