@@ -25,7 +25,7 @@ describe('bradescoRemittance main functionality', () => {
           debtType: '12',
           issueDay: new Date(2017, 6, 10),
           discountDayLimit: 0,
-          discountValue: 0, //?
+          discountValue: 0, // ?
           iofValue: 0,
           decreaseValue: 0,
           discountPerDay: 0, // ?
