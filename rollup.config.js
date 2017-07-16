@@ -1,6 +1,7 @@
 import {readFileSync} from 'fs'
 import babel from 'rollup-plugin-babel'
 import filesize from 'rollup-plugin-filesize'
+import resolve from 'rollup-plugin-local-resolve'
 
 const pkg = JSON.parse(readFileSync('./package.json'))
 const dependencies = Object.keys(pkg.dependencies || {})
@@ -29,6 +30,7 @@ export default [
         ],
         plugins: ['external-helpers']
       }),
+      resolve(),
       filesize()
     ]
   },
@@ -55,6 +57,7 @@ export default [
         ],
         plugins: ['external-helpers']
       }),
+      resolve(),
       filesize()
     ]
   }
