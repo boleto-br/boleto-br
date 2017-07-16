@@ -2,7 +2,7 @@
   "name": "boleto-br",
   "version": "0.0.1",
   "description": "A tool to generate brazilian banks boleto",
-  "main": "dist/index.js",
+  "main": "dist/bill/bill-factory.js",
   "scripts": {
     "prettier": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"lib/**/*.js\" --write \"test/**/*.js\" --write rollup.config.js",
     "flow": "flow",
@@ -16,6 +16,9 @@
   "keywords": [
     "boleto"
   ],
+  "files": [
+   "dist"
+ ],
   "babel": {
     "presets": [
       [
