@@ -1,6 +1,6 @@
 {
   "name": "boleto-br",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A tool to generate brazilian banks boleto",
   "main": "dist/bill/bill-factory.js",
   "scripts": {
@@ -17,8 +17,8 @@
     "boleto"
   ],
   "files": [
-   "dist"
- ],
+    "dist"
+  ],
   "babel": {
     "presets": [
       [
