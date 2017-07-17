@@ -1,6 +1,6 @@
 {
   "name": "boleto-br",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A tool to generate brazilian banks boleto",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
-    "coveralls":"npm run coverage && cat coverage/lcov.info | coveralls",
+    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls",
     "precommit": "npm test && npm run build",
     "build": "rollup -c"
   },
