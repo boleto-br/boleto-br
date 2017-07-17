@@ -4,7 +4,9 @@ import filesize from 'rollup-plugin-filesize'
 import resolve from 'rollup-plugin-local-resolve'
 
 const pkg = JSON.parse(readFileSync('./package.json'))
-const dependencies = Object.keys(pkg.dependencies || {}).concat(['flow-runtime'])
+const dependencies = Object.keys(pkg.dependencies || {}).concat([
+  'flow-runtime'
+])
 
 export default {
   entry: 'lib/index.js',
@@ -27,12 +29,13 @@ export default {
         'stage-0',
         'flow'
       ],
-      plugins: ['external-helpers',
+      plugins: [
+        'external-helpers',
         [
-          "flow-runtime",
+          'flow-runtime',
           {
-            "annotate": true,
-            "assert": true
+            annotate: true,
+            assert: true
           }
         ]
       ]
