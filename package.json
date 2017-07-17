@@ -10,6 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
+    "coveralls":"npm run coverage && cat coverage/lcov.info | coveralls",
     "precommit": "npm test",
     "build": "rollup -c"
   },
@@ -56,6 +57,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^2.13.1",
     "flow-bin": "^0.49.1",
     "flow-runtime": "^0.13.0",
     "husky": "^0.14.1",
