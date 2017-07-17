@@ -2,7 +2,7 @@
   "name": "boleto-br",
   "version": "0.0.2",
   "description": "A tool to generate brazilian banks boleto",
-  "main": "dist/bill/bill-factory.js",
+  "main": "dist/index.js",
   "scripts": {
     "prettier": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"lib/**/*.js\" --write \"test/**/*.js\" --write rollup.config.js",
     "flow": "flow",
@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "coveralls":"npm run coverage && cat coverage/lcov.info | coveralls",
-    "precommit": "npm test",
+    "precommit": "npm test && npm run build",
     "build": "rollup -c"
   },
   "keywords": [

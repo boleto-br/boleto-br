@@ -4,61 +4,40 @@ import filesize from 'rollup-plugin-filesize'
 import resolve from 'rollup-plugin-local-resolve'
 
 const pkg = JSON.parse(readFileSync('./package.json'))
-const dependencies = Object.keys(pkg.dependencies || {})
+const dependencies = Object.keys(pkg.dependencies || {}).concat(['flow-runtime'])
 
-export default [
-  {
-    entry: 'lib/bill/bill-factory.js',
-    dest: 'dist/bill/bill-factory.js',
-    external: dependencies,
-    format: 'cjs',
-    plugins: [
-      babel({
-        babelrc: false,
-        presets: [
-          [
-            'env',
-            {
-              targets: {
-                node: 4
-              },
-              modules: false
-            }
-          ],
-          'stage-0',
-          'flow'
+export default {
+  entry: 'lib/index.js',
+  dest: 'dist/index.js',
+  external: dependencies,
+  format: 'cjs',
+  plugins: [
+    babel({
+      babelrc: false,
+      presets: [
+        [
+          'env',
+          {
+            targets: {
+              node: 4
+            },
+            modules: false
+          }
         ],
-        plugins: ['external-helpers']
-      }),
-      resolve(),
-      filesize()
-    ]
-  },
-  {
-    entry: 'lib/bradesco/index.js',
-    dest: 'dist/bradesco/index.js',
-    external: dependencies,
-    format: 'cjs',
-    plugins: [
-      babel({
-        babelrc: false,
-        presets: [
-          [
-            'env',
-            {
-              targets: {
-                node: 4
-              },
-              modules: false
-            }
-          ],
-          'stage-0',
-          'flow'
-        ],
-        plugins: ['external-helpers']
-      }),
-      resolve(),
-      filesize()
-    ]
-  }
-]
+        'stage-0',
+        'flow'
+      ],
+      plugins: ['external-helpers',
+        [
+          "flow-runtime",
+          {
+            "annotate": true,
+            "assert": true
+          }
+        ]
+      ]
+    }),
+    resolve(),
+    filesize()
+  ]
+}
