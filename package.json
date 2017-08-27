@@ -84,8 +84,8 @@
   "dependencies": {
     "cpf_cnpj": "^0.2.0",
     "flow-runtime": "^0.13.0",
+    "moment": "^2.18.1",
     "pad-end": "^1.0.2",
-    "pad-start": "^1.0.2",
-    "vanilla-commons": "^1.0.1"
+    "pad-start": "^1.0.2"
   }
 }
