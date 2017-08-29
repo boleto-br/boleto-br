@@ -90,6 +90,6 @@ Isto produzira um arquivo de remessa como esse:
 
 Veja o [contributing file](CONTRIBUTING.md).
 
-##Lincença
+## Licença
 
 [MIT License](LICENSE.md) © [Rafael Castro](https://twitter.com/rafaelc457ro)
