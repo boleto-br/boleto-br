@@ -19,7 +19,6 @@ $ npm install boleto-br --save
 
 ## Uso
 
-
 ```js
 
 const {bill,bradesco} = require('boleto-br')
@@ -78,6 +77,9 @@ generateRemittanceFile(boletos).then(data =>{
 })
 
 ```
+Veja [aqui](docs/banks/bradesco.md) descrição detalhada dos campos, para
+geração de remesessa bradesco.
+
 Isto produzira um arquivo de remessa como esse:
 
 ```
