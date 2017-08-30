@@ -78,7 +78,7 @@ generateRemittanceFile(boletos).then(data =>{
 
 ```
 Veja [aqui](docs/banks/bradesco.md) descrição detalhada dos campos, para
-geração de remesessa bradesco.
+geração de remessa Bradesco.
 
 Isto produzira um arquivo de remessa como esse:
 
