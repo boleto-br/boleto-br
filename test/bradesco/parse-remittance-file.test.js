@@ -26,8 +26,8 @@ describe('parseRemittanceFile main functionality', () => {
           occurencyDate: new Date(2012, 3, 11),
           occurencyReasons: ['00', '00', '00', '00', '00'],
           ourNumber: '00000000009',
-          paidValue: '0000000000000',
-          value: '0000000000500'
+          paidValue: 0,
+          value: 500
         },
         {
           agency: '01420',
@@ -38,8 +38,8 @@ describe('parseRemittanceFile main functionality', () => {
           occurencyDate: new Date(2012, 3, 11),
           occurencyReasons: ['00', '00', '00', '00', '00'],
           ourNumber: '00000000009',
-          paidValue: '0000000000500',
-          value: '0000000000500'
+          paidValue: 500,
+          value: 500
         }
       ]
     }
