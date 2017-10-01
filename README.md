@@ -3,9 +3,22 @@
 <a href="https://www.npmjs.com/package/boleto-br"><img src="https://img.shields.io/npm/v/boleto-br.svg" alt="npm"></a>
 <a href="https://travis-ci.org/boleto-br/boleto-br"><img src="https://img.shields.io/travis/boleto-br/boleto-br.svg" alt="Travis"></a> <a href="https://coveralls.io/github/boleto-br/boleto-br?branch=master"><img src="https://img.shields.io/coveralls/boleto-br/boleto-br.svg" alt="Coveralls"></a>
 
-:construction: :construction: :construction:
-Este projeto ainda está em construção.
-Não usar em produção.
+> Um conjunto de funções úteis para geração de boleto de cobrança de banco brasileiros.
+
+## Motivação
+
+facilitar a geração de boletos de cobrança de bancos brasileiros, ele não gera um html
+ou mesmo um pdf do boleto, para isso recomendo o uso do [boleto-pdf](https://www.npmjs.com/package/boleto-pdf).
+
+Suporte:
+
+| Barco        |  Suporte             |
+|--------------|----------------------|
+| Bradesco     |  :white_check_mark:  |
+| Caixa        |  Em breve            |
+| Santander    |  Help Wanted         |
+| Itaú         |  Help Wanted         |
+| Outros       |  Help Wanted         |
 
 ## Instalação
 
@@ -19,12 +32,38 @@ $ npm install boleto-br --save
 
 ## Uso
 
+### Geração de boleto
+
+```js
+const {bill,bradesco} = require('boleto-br')
+const bradescoBill = bill(bradesco)
+const {generateBillData} = bradescoBill
+
+const boletos =  [
+  {
+    ...
+    expirationDay: Date,
+    value: number,
+    agency: string,
+    card: string,
+    ourNumber: string,
+    account: number
+  }
+]
+generateBillData(boletos).then( data => {
+  // do something with data
+}).catch(err => {
+  console.log(err)
+})
+
+```
+
+### Geração de arquivo de remessa
+
 ```js
 
 const {bill,bradesco} = require('boleto-br')
-
 const bradescoBill = bill(bradesco)
-
 const {generateRemittanceFile} = bradescoBill
 
 const boletos = {
