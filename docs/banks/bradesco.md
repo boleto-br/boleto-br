@@ -1,8 +1,6 @@
 # Bradesco
 
-##Uso
-
-## gerando boleto em pdf usando boleto-pdf
+### gerando boleto em pdf usando boleto-pdf
 
 ```js
 
@@ -87,7 +85,7 @@ generateBillData(boletos).then( data => {
 
 ```
 
-# gerando arquivo de remessa
+### gerando arquivo de remessa
 
 ```js
 

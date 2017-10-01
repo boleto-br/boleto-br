@@ -57,6 +57,8 @@ generateBillData(boletos).then( data => {
 })
 
 ```
+Veja [aqui](docs/banks/bradesco.md) uma descrição mais detalhada de como
+gerar um pdf.
 
 ### Geração de arquivo de remessa
 
@@ -116,7 +118,7 @@ generateRemittanceFile(boletos).then(data =>{
 })
 
 ```
-Veja [aqui](docs/banks/bradesco.md) descrição detalhada dos campos, para
+Veja [aqui](docs/banks/bradesco.md) a descrição detalhada dos campos, para
 geração de remessa Bradesco.
 
 Isto produzira um arquivo de remessa como esse:
