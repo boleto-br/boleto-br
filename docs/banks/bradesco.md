@@ -123,6 +123,8 @@ const boletos = {
       decreaseValue: 0,
       discountPerDay: 0,
       registerType: '01',
+      instructionOne: '00',
+      instructionTwo: '00',
       registerNumber: '83901298000138',
       payerName: 'JOHN BUYER',
       payerAddress: 'CLOWN SC',
@@ -205,6 +207,40 @@ agora no bills vai as informações dos boletos realmente,
 | 03           |  PIS/PASEP                  |
 | 98           |  Não tem                    |
 | 99           |  Outro                      |
+
+- **instructionOne** e **instructionTwo**
+
+1ª / 2ª Instrução
+Campo destinado para pré-determinar o protesto do Título ou a baixa por decurso de prazo, quando
+do registro.
+Não havendo interesse, preencher com Zeros.
+Porém, caso a Empresa deseje se utilizar da instrução automática de protesto ou da baixa por
+decurso de prazo, abaixo os procedimentos:
+Protesto/Negativação:
+**instructionOne** = Indicar o código “06” - (Protestar).
+**instructionOne** = Indicar o código “07” - (Negativar)
+**instructionTwo** = Indicar o número de dias a protestar (mínimo 5 dias).
+Protesto Falimentar:
+**instructionOne** = Indicar o código “05” – (Protesto Falimentar)
+**instructionTwo** = Indicar o número de dias a protestar (mínimo 5 dias).
+Decurso de Prazo:
+**instructionOne** = Indicar o código “18” – (Decurso de prazo).
+**instructionTwo** = Indicar o número de dias para baixa por decurso de prazo.
+21/57
+
+Nota: A **instructionOne**, também poderá ser utilizada para definir as seguintes mensagens, a
+serem impressas nos Boletos de cobrança, emitidas pelo Banco:
+
+- `08` Não cobrar juros de mora
+- `09` Não receber após o vencimento
+- `10` Multas de 10% após o 4º dia do Vencimento.
+- `11` Não receber após o 8º dia do vencimento.
+- `12` Cobrar encargos após o 5º dia do vencimento.
+- `13` Cobrar encargos após o 10º dia do vencimento.
+- `14` Cobrar encargos após o 15º dia do vencimento
+- `15` Conceder desconto mesmo se pago após o vencimento.
+
+*Somente deverá ser enviada essa ocorrência, se a Empresa contratou o serviço.
 
 - **registerNumber**: numero do registro com base do tipo, ou seja, número sem
  espaços e caracteres especiais do CNPJ ou CPF e etc.

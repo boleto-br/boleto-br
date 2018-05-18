@@ -41,6 +41,8 @@ describe('generateLineRegisterTypeOne main functionality', () => {
       value: 50896,
       debtType: '12',
       issueDay: '161216',
+      instructionOne: '09',
+      instructionTwo: '00',
       lateFeeValuePerDay: 17, // R$ 0,17
       discountDayLimit: 0,
       discountValue: 0,
@@ -57,7 +59,7 @@ describe('generateLineRegisterTypeOne main functionality', () => {
     })
 
     const expected =
-      '1                   00090750600542911                         2372020002000102625200000000002N              01200010262510011700000000508960000000012N161216000000000000000170000000000000000000000000000000000000000000000100001841146919RAFAEL CASTRO                           PALHOCA SC                                          8982000073646364000117  ACME SA                                     000002'
+      '1                   00090750600542911                         2372020002000102625200000000002N              01200010262510011700000000508960000000012N161216090000000000000170000000000000000000000000000000000000000000000100001841146919RAFAEL CASTRO                           PALHOCA SC                                          8982000073646364000117  ACME SA                                     000002'
 
     expect(line).toEqual(expected)
   })

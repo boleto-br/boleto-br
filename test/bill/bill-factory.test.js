@@ -107,6 +107,8 @@ describe('billFactory main functionality', () => {
           decreaseValue: 0,
           discountPerDay: 0, // ?
           registerType: '01',
+          instructionOne: '00',
+          instructionTwo: '00',
           registerNumber: '83901298000138',
           payerName: 'JOHN BUYER',
           payerAddress: 'CLOWN SC',
