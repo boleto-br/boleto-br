@@ -7,10 +7,7 @@ const pkg = JSON.parse(readFileSync('./package.json'))
 const dependencies = Object.keys(pkg.dependencies || {})
 
 export default {
-  entry: 'lib/index.js',
-  dest: 'dist/index.js',
-  external: dependencies,
-  format: 'cjs',
+  input: 'lib/index.js',
   plugins: [
     babel({
       babelrc: false,
@@ -41,5 +38,10 @@ export default {
     }),
     resolve(),
     filesize()
-  ]
+  ],
+  external: dependencies,
+  output: {
+    format: 'cjs',
+    file: 'dist/index.js'
+  }
 }
