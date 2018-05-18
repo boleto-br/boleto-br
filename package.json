@@ -1,6 +1,6 @@
 {
   "name": "boleto-br",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A tool to generate brazilian banks boleto",
   "main": "dist/index.js",
   "scripts": {
