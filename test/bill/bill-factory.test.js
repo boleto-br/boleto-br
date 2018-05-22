@@ -1,5 +1,5 @@
 import billFactory from '../../lib/bill/bill-factory'
-import bradesco from '../../lib/bradesco/'
+import bradesco from '../../lib/bradesco'
 
 describe('billFactory main functionality', () => {
   it('generateBillData Promise should produce a result a new Object with new values of barcodeData, digitableLine,formatedOurNumber', () => {
